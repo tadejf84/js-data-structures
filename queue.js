@@ -1,43 +1,47 @@
-function Queue() {
-	this.dataStore = [];
-	this.enqueue = enqueue;
-	this.dequeue = dequeue;
-	this.front = front;
-	this.back = back;
-	this.toString = toString;
-	this.empty = empty;
-}
-
-function enqueue(element) {
-	this.dataStore.push(element);
-}
-
-function dequeue() {
-	return this.dataStore.shift();
-}
-
-function front() {
-	return this.dataStore[0];
-}
-
-function back() {
-	return this.dataStore[this.dataStore.length-1];
-}
-
-// show all elements
-function toString() {
-	var retStr = "";
-	for (var i = 0; i < this.dataStore.length; ++i) {
-	retStr += this.dataStore[i] + "\n";
+/*
+* queue
+* first in, first out data structure
+*/
+class Queue {
+	
+	constructor() {
+		this.data = [];   // data storage
 	}
-	return retStr;
-}
+	
+	// add el to back
+	enqueue(el) {
+		this.data.push(el);
+	}
 
-function empty() {
-	if (this.dataStore.length == 0) {
-	return true;
+	// remove el from front
+	dequeue() {
+		return this.data.shift();
 	}
-	else {
-	return false;
+
+	// traverse to front
+	front() {
+		return this.data[0];
 	}
+
+	// traverse to back
+	back() {
+		return this.data[this.data.length - 1];
+	}
+	
+	// display queue - to console
+	display() {
+		for (let d of this.data) {
+			console.log(d + ',');
+		}
+	}
+	
+	// check if queue is empty
+	isEmpty() {
+		if (this.data.length === 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }
