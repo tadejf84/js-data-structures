@@ -71,15 +71,28 @@
 			console.log(bTree);
 			
 			
-			// graphs
-			let graph = new Graph(5);
-			graph.addEdge(0,1);
-			graph.addEdge(0,2);
-			graph.addEdge(1,3);
-			graph.addEdge(2,4);
-			//graph.display();
-			graph.dfs(4);
+			/*
+			* graph class instance
+			*/ 
+			let graph = new Graph(6); 
+			const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ]; 
+			
+			// adding vertices 
+			for (let i = 0; i < vertices.length; i++) { 
+				graph.addVertex(vertices[i]); 
+			} 
+			
+			// adding edges 
+			graph.addEdge('A', 'B'); 
+			graph.addEdge('A', 'D'); 
+			graph.addEdge('A', 'E'); 
+			graph.addEdge('B', 'C'); 
+			graph.addEdge('D', 'E'); 
+			graph.addEdge('E', 'F'); 
+			graph.addEdge('E', 'C'); 
+			graph.addEdge('C', 'F'); 
 			console.log(graph);
+			graph.displayGraph(); 
 
 			
 		});
