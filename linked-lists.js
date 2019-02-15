@@ -1,51 +1,65 @@
-function LList() {
-	this.head = new Node("head");
-	this.find = find;
-	this.insert = insert;
-	this.remove = remove;
-	this.display = display;
-}
-
-function Node(element) {
-	this.element = element;
-	this.next = null;
-}
-
-function find(item) {
-	var currNode = this.head;
-	while (currNode.element != item) {
-	currNode = currNode.next;
+/*
+* linked lists
+*
+*/
+class LinkedList {
+	
+	constructor () {
+		this.head = new Node("head");;
 	}
-	return currNode;
-}
-
-function insert(newElement, item) {
-	var newNode = new Node(newElement);
-	var current = this.find(item);
-	newNode.next = current.next;
-	current.next = newNode;
-}
-
-function display() {
-	var currNode = this.head;
-	while (!(currNode.next == null)) {
-		console.log(currNode.next.element);
+	
+	// find node in the list
+	find (node) {
+		let currNode = this.head;
+		while (currNode.element !== node) {
 		currNode = currNode.next;
+		}
+		return currNode;
 	}
+	
+	// insert new node
+	insert(newEl, linkedNode) {
+		let newNode = new Node(newEl);
+		let current = this.find(linkedNode);
+		newNode.next = current.next;
+		current.next = newNode;
+	}
+	
+	// remove node from list
+	remove(node) {
+		let prevNode = this.findPrevious(node);
+		if (prevNode.next !== null) {
+			prevNode.next = prevNode.next.next;
+		}
+	}
+	
+	// display data - to console
+	display() {
+		let currNode = this.head;
+		while (currNode.next !== null) {
+			console.log(currNode.next.element);
+			currNode = currNode.next;
+		}
+	}
+	
+	// find previos node
+	findPrevious(node) {
+		let currNode = this.head;
+		while (currNode.next !== null && currNode.next.element !== node) {
+			currNode = currNode.next;
+		}
+		return currNode;
+	}
+
 }
 
-function findPrevious(item) {
-	var currNode = this.head;
-	while (!(currNode.next == null) && (currNode.next.element != item)) {
-		currNode = currNode.next;
-	}
-	return currNode;
-}
 
-// remove node from list
-function remove(item) {
-	var prevNode = this.findPrevious(item);
-	if (!(prevNode.next == null)) {
-	prevNode.next = prevNode.next.next;
+/*
+* class to construct a node
+*/
+class Node {
+	constructor (el) {
+		this.element = el;
+		this.next = null;	
 	}
 }
