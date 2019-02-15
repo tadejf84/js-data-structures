@@ -10,7 +10,7 @@
 	<script src="stacks.js"></script>
 	<script src="queue.js"></script>
 	<script src="linked-lists.js"></script>
-	<!-- <script src="dictionaries.js"></script> -->
+	<script src="dictionaries.js"></script>
 	<script src="hash-tables.js"></script>
 	<script src="binary-trees.js"></script>
 	<script src="graphs.js"></script>
@@ -26,60 +26,60 @@
 			console.log(list);
 			
 			// stacks
-			var s = new Stack();
-		s.push("David");
-		s.push("Raymond");
-		s.push("Bryan");
-			console.log(s);
+			let stack = new Stack();
+			stack.push('el1');
+			stack.push('el2');
+			stack.push('el3');
+			console.log(stack);
 			
 			// queues
-			var q = new Queue();
-q.enqueue("Meredith");
-q.enqueue("Cynthia");
-q.enqueue("Jennifer");
-			console.log(q);
+			let queue = new Queue();
+			queue.enqueue('el1');
+			queue.enqueue('el2');
+			queue.enqueue('el3');
+			console.log(queue);
 			
 			// linked lists
-			var cities = new LList();
-			cities.insert("Conway", "head");
-			cities.insert("Russellville", "Conway");
-			cities.insert("Alma", "Russellville");
-			console.log(cities);
+			let ll = new LinkedList();
+			ll.insert('el1', 'head');
+			ll.insert('el2', 'el1');
+			ll.insert('el3', 'el2');
+			console.log(ll);
 			
 			// dictionaries
-			/*
-			var pbook = new Dictionary();
-			pbook.add("Raymond","123");
-			pbook.add("David", "345");
-			pbook.add("Cynthia", "456");
-			console.log(pbook);
-			*/
+			let dictionary = new Dictionary();
+			dictionary.add('el1', 'value1');
+			dictionary.add('el2', 'value2');
+			dictionary.add('el3', 'value3');
+			console.log(dictionary);
 			
 			// hash tables
-			var someNames = ["David", "Jennifer", "Donnie", "Raymond", "Cynthia", "Mike", "Clayton", "Danny", "Jonathan"];
-			var hTable = new HashTable();
+			let hTable = new HashTable();
+			hTable.put('el1');
+			hTable.put('el2');
+			hTable.put('el3');
 			console.log(hTable);
 			
 			// binary trees
-			var nums = new BinaryTree();
-			nums.insert(23);
-			nums.insert(45);
-			nums.insert(16);
-			nums.insert(37);
-			nums.insert(3);
-			nums.insert(99);
-			nums.insert(22);
-			console.log(nums);
+			let bTree = new BinaryTree();
+			bTree.insert(12);
+			bTree.insert(11);
+			bTree.insert(22);
+			bTree.insert(9);
+			bTree.insert(3);
+			bTree.insert(37);
+			console.log(bTree);
 			
 			
 			// graphs
-			g = new Graph(5);
-			g.addEdge(0,1);
-			g.addEdge(0,2);
-			g.addEdge(1,3);
-			g.addEdge(2,4);
-			console.log(g);
-	
+			let graph = new Graph(5);
+			graph.addEdge(0,1);
+			graph.addEdge(0,2);
+			graph.addEdge(1,3);
+			graph.addEdge(2,4);
+			//graph.display();
+			graph.dfs(4);
+			console.log(graph);
 
 			
 		});

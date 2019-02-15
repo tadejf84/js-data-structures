@@ -1,3 +1,63 @@
+/*
+* graphs
+* graph consists of a set of vertices and a set of edges
+* edges connect vertices
+* a vertex can also have weight, also called cost
+*/
+class Graph {
+	
+	 constructor (v) {
+			this.vertices = v;  // set vertices
+			this.edges = 0;		// set edges to 0
+			this.adj = [];      
+			this.visited = [];   // track visited vertices
+		 	
+			for (let i = 0; i < this.vertices; i++) {
+				this.adj[i] = [];
+				this.adj[i].push("");
+				this.visited[i] = false;
+			}
+	 }
+
+	// add edges to the graph
+	addEdge(v,w) {
+		this.adj[v].push(w);
+		this.adj[w].push(v);
+		this.edges++;
+	}
+	
+	// search graph - depth first search
+	dfs(v) {
+		this.visited[v] = true;
+		if (this.adj[v] !== undefined) {
+			console.log('Visited vertex: ' + v);
+			for (let w of this.adj[v]) {
+				if (!this.visited[w]) {
+					this.dfs(w);
+				}
+			}
+		} else {
+			console.log('Vertex does not exist!');
+		}
+	}
+	
+	// show graph
+	display() {
+		let str = '';
+		for (var i = 0; i < this.vertices; ++i) {
+			str += i + ' -> ';
+			for (var j = 0; j < this.vertices; ++j) {
+				if (this.adj[i][j] !== undefined) {
+					str += this.adj[i][j] + ' ';	
+				}
+			}
+		}
+		console.log(str);
+	}
+
+}
+
+/*
 function Vertex(label) {
 	this.label = label;
 }
@@ -28,6 +88,7 @@ this.adj[v].push(w);
 this.adj[w].push(v);
 this.edges++;
 }
+*/
 
 
 function showGraph() {
