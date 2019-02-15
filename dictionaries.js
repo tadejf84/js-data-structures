@@ -1,58 +1,44 @@
-function Dictionary() {
-		this.add = add;
-		this.datastore = new Array();
-		this.find = find;
-		this.remove = remove;
-		this.showAll = showAll;
-		this.count = count;
-		this.clear = clear;
-}
-
-function add(key, value) {
-	this.datastore[key] = value;
-}
-
-function find(key) {
-	return this.datastore[key];
-}
-
-function remove(key) {
-	//delete this.datastore[key];
-}
-
-function showAll() {
-	Object.keys(this.datastore).forEach(function(key){
-		console.log(key + " -> " + this.datastore[key]);
-	});
-	/*
-	foreach (var key in Object.keys(this.datastore)) {
-		console.log(key + " -> " + this.datastore[key]);
+/*
+* dictionaries
+* store data as key value pairs
+*/
+class Dictionary {
+	
+	constructor () {
+		this.data = []; // data storage
 	}
-	*/
+	
+	// add data as key-value pair
+	add (key, val) {
+		this.data[key] = val;
+	}
+	
+	// find value by key
+	find (key) {
+		return this.data[key];
+	}
+	
+	// remove element
+	remove (key) {
+		delete this.data[key];
+	}
+	
+	// display all data - to console
+	display () {
+		Object.keys(this.data).forEach( (key, val) => console.log(key + ': ' + this.data[key]) );
+	}
+	
+	// count number of elements
+	count () {
+		let n = 0;
+		Object.keys(this.data).forEach( key => n++ );
+		return n;
+	}
+	
+	// clear data
+	empty () {
+		this.data = [];
+	}
+	
 }
 
-function count() {
-	var n = 0;
-	Object.keys(this.datastore).forEach(function(key){
-		++n;
-	});
-	return n;
-	/*
-	var n = 0;
-	for each (var key in Object.keys(this.datastore)) {
-	++n;
-	}
-	return n;
-	*/
-}
-
-function clear() {
-	Object.keys(this.datastore).forEach(function(key){
-		//delete this.datastore[key];
-	});
-	/*
-	for each (var key in Object.keys(this.datastore)) {
-	delete this.datastore[key];
-	}
-	*/
-}
