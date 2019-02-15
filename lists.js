@@ -7,20 +7,20 @@ class List {
 	
 	constructor() {
 		this.listSize = 0; 		// size of the list
-		this.pos = 0; 				// current position in the list
-		this.dataStore = []; 	// data storage - elements stored in an array
+		this.pos = 0; 			// current position in the list
+		this.data = []; 		// data storage - elements stored in an array
 	}
 	
 	// append element to list
-	append(element) {
-		this.dataStore[this.listSize++] = element;
+	append(el) {
+		this.data[this.listSize++] = el;
 	}
 	
 	// insert an element
-	insert(element, after) {
+	insert(el, after) {
 		var insertPos = this.find(after);
 		if (insertPos > -1) {
-			this.dataStore.splice(insertPos + 1, 0, element);
+			this.data.splice(insertPos + 1, 0, el);
 			this.listSize++;
 			return true;
 		}
@@ -28,10 +28,10 @@ class List {
 	}
 	
 	// remove element from list
-	remove(element) {
-		var foundAt = this.find(element);
+	remove(el) {
+		var foundAt = this.find(el);
 		if (foundAt > -1) {
-			this.dataStore.splice(foundAt, 1);
+			this.data.splice(foundAt, 1);
 			this.listSize--;
 			return true;
 		}
@@ -40,24 +40,24 @@ class List {
 	
 	// empty list
 	clear() {
-		this.dataStore = [];
+		this.data = [];
 		this.listSize = 0;
 		this.pos = 0;
 	}
 	
 	// find element in the list
-	find(element) {
-		return this.dataStore.indexOf(element);
+	find(el) {
+		return this.data.indexOf(el);
 	}
 	
 	// diplay list
 	display() {
-		return this.dataStore;
+		return this.data;
 	}
 	
 	// check if element is in the list
-	hasElement(element) {
-		return this.dataStore.includes(element);
+	hasElement(el) {
+		return this.data.includes(el);
 	}
 	
 	// traverse the list methods
@@ -90,7 +90,7 @@ class List {
 	}
 	
 	getElement() {
-		return this.dataStore[this.pos];
+		return this.data[this.pos];
 	}
 	
 	// return length of the list
