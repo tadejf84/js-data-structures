@@ -1,6 +1,8 @@
 /*
 * linked lists
-*
+* a linked list is a linear data structure
+* the elements in a linked list are linked using pointers
+* each element or node contains data and reference to the next element in the list
 */
 class LinkedList {
 	
