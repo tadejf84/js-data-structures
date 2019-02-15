@@ -74,26 +74,21 @@
 			/*
 			* graph class instance
 			*/ 
-			let graph = new Graph(6); 
-			const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ]; 
-			
-			// adding vertices 
-			for (let i = 0; i < vertices.length; i++) { 
-				graph.addVertex(vertices[i]); 
-			} 
-			
-			// adding edges 
-			graph.addEdge('A', 'B'); 
-			graph.addEdge('A', 'D'); 
-			graph.addEdge('A', 'E'); 
-			graph.addEdge('B', 'C'); 
-			graph.addEdge('D', 'E'); 
-			graph.addEdge('E', 'F'); 
-			graph.addEdge('E', 'C'); 
-			graph.addEdge('C', 'F'); 
-			console.log(graph);
-			graph.displayGraph(); 
-
+			const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
+			const edges = [
+				{ 'src': 'A', 'dest': 'B' },
+				{ 'src': 'A', 'dest': 'D' },
+				{ 'src': 'A', 'dest': 'E' },
+				{ 'src': 'B', 'dest': 'C' },
+				{ 'src': 'D', 'dest': 'E' },
+				{ 'src': 'E', 'dest': 'F' },
+				{ 'src': 'E', 'dest': 'C' },
+				{ 'src': 'C', 'dest': 'F' }
+			];
+			let graph = new Graph(vertices, edges);
+			graph.addVertex('G');
+			graph.addEdge({'src': 'E', 'dest': 'G'});
+			console.log(graph); 
 			
 		});
 	</script>
