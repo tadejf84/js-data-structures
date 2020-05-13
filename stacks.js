@@ -1,20 +1,30 @@
-/*
-* stack 
-* data can be added or removed only from the top of the stack
-*/
+/**
+ * Class Stack
+ * 
+ * Data can be added or removed only from the top of the stack
+ */
 class Stack {
 	
 	constructor() {
-		this.data = []; 	// data storage - elements stored in an array
-		this.top = 0; 		// top of the stack
+		this.data = []; 	// Data storage - elements stored in an array
+		this.top = 0; 		// Top of the stack
 	}
 	
-	// store element on the top of the stack
+
+	/**
+	 * Store element on the top of the stack
+	 * 
+	 * @param {string} el 
+	 */
 	push(el) {
 		this.data[this.top++] = el;
 	}
 	
-	// return the element from the top of the stack and decrement stack size
+
+	/**
+	 * Return the element from the top of the stack and decrement stack size
+	 * 
+	 */
 	pop() {
 		return this.data[--this.top];
 	}
@@ -23,12 +33,20 @@ class Stack {
 		return this.data[this.top - 1];
 	}
 	
-	// clear the stack
+
+	/**
+	 * Empty the stack
+	 * 
+	 */
 	clear() {
 		this.top = 0;
 	}
 	
-	// get size of the stack
+	/**
+	 * Get the size of the stack
+	 * 
+	 * @returns {number} size
+	 */
 	length() {
 		return this.top;
 	}
