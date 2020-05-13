@@ -1,41 +1,68 @@
-/*
-* queue
-* first in, first out data structure
-*/
+/**
+ * Class Queue
+ * 
+ * First in, first out data structure
+ */
 class Queue {
 	
 	constructor() {
 		this.data = [];   // data storage
 	}
 	
-	// add el to back
+
+	/**
+	 * Add element to back of the queue
+	 * 
+	 * @param {string} el 
+	 */
 	enqueue(el) {
 		this.data.push(el);
 	}
 
-	// remove el from front
+
+	/**
+	 * Remove element from front
+	 * 
+	 */
 	dequeue() {
-		return this.data.shift();
+		this.data.shift();
 	}
 
-	// traverse to front
+
+	/**
+	 * Traverse to front
+	 * 
+	 */
 	front() {
 		return this.data[0];
 	}
 
-	// traverse to back
+
+	/**
+	 * Traverse to back
+	 * 
+	 */
 	back() {
 		return this.data[this.data.length - 1];
 	}
 	
-	// display queue - to console
+
+	/**
+	 * Display queue in console
+	 * 
+	 */
 	display() {
 		for (let d of this.data) {
 			console.log(d + ',');
 		}
 	}
 	
-	// check if queue is empty
+
+	/**
+	 * Check if queue is empty
+	 * 
+	 * @returns {boolean}
+	 */
 	isEmpty() {
 		if (this.data.length === 0) {
 			return true;
