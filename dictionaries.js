@@ -1,42 +1,73 @@
-/*
-* dictionaries
-* store data as key value pairs
-*/
+/**
+ * Class Dictionary
+ * 
+ * Store data as key value pairs
+ */
 class Dictionary {
 	
-	constructor () {
+	constructor() {
 		this.data = []; // data storage
 	}
 	
-	// add data as key-value pair
-	add (key, val) {
+
+	/**
+	 * Add data as key-value pair
+	 * 
+	 * @param {string} key 
+	 * @param {string} val 
+	 */
+	add(key, val) {
 		this.data[key] = val;
 	}
 	
-	// find value by key
-	find (key) {
+
+	/**
+	 * Find by key
+	 * 
+	 * @param {string} key 
+	 * 
+	 * @returns {string}
+	 */
+	find(key) {
 		return this.data[key];
 	}
 	
-	// remove element
-	remove (key) {
+
+	/**
+	 * Remove element
+	 * 
+	 * @param {string} key 
+	 */
+	remove(key) {
 		delete this.data[key];
 	}
 	
-	// display all data - to console
-	display () {
+
+	/**
+	 * Display all data in console
+	 * 
+	 */
+	display() {
 		Object.keys(this.data).forEach( (key, val) => console.log(key + ': ' + this.data[key]) );
 	}
 	
-	// count number of elements
-	count () {
+
+	/**
+	 * Count total number of elements
+	 * 
+	 * @returns {number} count
+	 */
+	count() {
 		let n = 0;
 		Object.keys(this.data).forEach( key => n++ );
 		return n;
 	}
 	
-	// clear data
-	empty () {
+	/**
+	 * Empty all data
+	 * 
+	 */
+	empty() {
 		this.data = [];
 	}
 	
