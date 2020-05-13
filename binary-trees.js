@@ -1,16 +1,22 @@
-/*
-* binary trees
-* a tree is a nonlinear data structure that is used to store data in a hierarchical manner
-* a tree is made up of a set of nodes connected by edges
-* binary trees - max number of child nodes is 2
-*/
+/**
+ * Class Binary Tree
+ * 
+ * A tree is a nonlinear data structure that is used to store data in a hierarchical manner
+ * A tree is made up of a set of nodes connected by edges
+ * Binary trees - max number of child nodes is 2
+ */
 class BinaryTree {
 	
 	constructor () {
-		this.root = null; // set root of the tree to null at first
+		this.root = null; // Set root of the tree to null at first
 	}
 	
-	// insert node to binary tree
+
+	/**
+	 * Insert node to binary tree
+	 * 
+	 * @param {number} data 
+	 */
 	insert (data) {
 		let n = new NodeTree(data, null, null);
 		if (this.root === null) {
@@ -37,35 +43,44 @@ class BinaryTree {
 		}
 	}
 	
-	// remove nodes from the tree
+
+	/**
+	 * Remove nodes from the tree
+	 * 
+	 * @param {number} data 
+	 */
 	remove(data) {
 		this.root = this.removeNode(this.root, data);
 	}
 	
+
+	/**
+	 * Remove node
+	 * 
+	 * @param {object} node 
+	 * @param {number} data 
+	 */
 	removeNode(node, data) {
-		
-		if (node === null) {
-			return null;
-		}
+		if (node === null) return null;
 		
 		if (data === node.data) {
 			
-			// node has no children
+			// Node has no children
 			if (node.left === null && node.right === null) {
 				return null;
 			}
 			
-			// node has no left child
+			// Node has no left child
 			if (node.left === null) {
 				return node.right;
 			}
 			
-			// node has no right child
+			// Node has no right child
 			if (node.right === null) {
 				return node.left;
 			}
 			
-			// node has two children
+			// Node has two children
 			let tempNode = Math.min(node.right);
 			node.data = tempNode.data;
 			node.right = this.removeNode(node.right, tempNode.data);
@@ -81,7 +96,14 @@ class BinaryTree {
 		
 	}
 	
-	// find node
+
+	/**
+	 * Find node
+	 * 
+	 * @param {number} data 
+	 * 
+	 * @returns {object} Node
+	 */
 	find(data) {
 		let current = this.root;
 		
@@ -100,16 +122,24 @@ class BinaryTree {
 		return current;
 	}
 	
-	// traverse tree and output nodes to console
+
+	/**
+	 * Traverse tree and output nodes to console
+	 * 
+	 * @param {object} node 
+	 */
 	inOrder(node) {
-		if ( node !== null) {
-			this.inOrder(node.left);
-			console.log(node.data);
-			this.inOrder(node.right);
-		}
+		if ( node === null) return;
+		this.inOrder(node.left);
+		console.log(node.data);
+		this.inOrder(node.right);
 	}
 	
-	// get min value - minimum is either root or found in the left
+
+	/**
+	 * Get min value - minimum is either root or found in the left
+	 * 
+	 */
 	getMin() {
 		let current = this.root;
 		while (current.left !== null) {
@@ -117,8 +147,12 @@ class BinaryTree {
 		}
 		return current.data;
 	}
-	
-	// get max value - maximum is either root or found in the right
+
+
+	/**
+	 * Get max value - maximum is either root or found in the right
+	 * 
+	 */
 	getMax() {
 		let current = this.root;
 		while (current.right !== null) {
@@ -130,9 +164,11 @@ class BinaryTree {
 }
 
 
-/*
-* class to construct a node
-*/
+/**
+ * Class NodeTree
+ * Instantiate a single node of the tree
+ * 
+ */
 class NodeTree {
 	constructor (data, left, right) {
 		this.data = data;
