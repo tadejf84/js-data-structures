@@ -19,48 +19,49 @@
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
 
-			// lists			
+			// Lists			
 			let list = new List();
 			list.append('el1');
 			list.append('el2');
 			console.log(list);
 			
-			// stacks
+			// Stacks
 			let stack = new Stack();
 			stack.push('el1');
 			stack.push('el2');
 			stack.push('el3');
 			console.log(stack);
 			
-			// queues
+			// Queues
 			let queue = new Queue();
 			queue.enqueue('el1');
 			queue.enqueue('el2');
 			queue.enqueue('el3');
 			console.log(queue);
+
 			
-			// linked lists
+			// Linked lists
 			let ll = new LinkedList();
 			ll.insert('el1', 'head');
 			ll.insert('el2', 'el1');
 			ll.insert('el3', 'el2');
 			console.log(ll);
 			
-			// dictionaries
+			// Dictionaries
 			let dictionary = new Dictionary();
 			dictionary.add('el1', 'value1');
 			dictionary.add('el2', 'value2');
 			dictionary.add('el3', 'value3');
 			console.log(dictionary);
 			
-			// hash tables
+			// Hash tables
 			let hTable = new HashTable();
 			hTable.put('el1');
 			hTable.put('el2');
 			hTable.put('el3');
 			console.log(hTable);
 			
-			// binary trees
+			// Binary trees
 			let bTree = new BinaryTree();
 			bTree.insert(12);
 			bTree.insert(11);
@@ -70,10 +71,7 @@
 			bTree.insert(37);
 			console.log(bTree);
 			
-			
-			/*
-			* graph class instance
-			*/ 
+			// Graphs
 			const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
 			const edges = [
 				{ 'src': 'A', 'dest': 'B' },
@@ -89,7 +87,7 @@
 			graph.addVertex('G');
 			graph.addEdge({'src': 'E', 'dest': 'G'});
 			console.log(graph); 
-			
+
 		});
 	</script>
 </body>
