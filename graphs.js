@@ -1,55 +1,69 @@
-/*
-* graphs
-* graph consists of a set of vertices and a set of edges
-* edges connect vertices
-* a vertex can also have weight, also called cost
-*/
+/**
+ * Class Graph
+ * 
+ * Graph consists of a set of vertices and a set of edges
+ * Edges connect vertices
+ * A vertex can also have weight, also called cost
+ */
 class Graph { 
 
 	constructor(vertices, edges) { 
-		this.vertices = vertices; 	// initial vertices
+		this.vertices = vertices; 	// Initial vertices
 		this.edges = edges;
-		this.AdjList = new Map(); 	// list of adjacent vertices
+		this.AdjList = new Map(); 	// List of adjacent vertices
 		
-		// add initial vertices to graph
+		// Add initial vertices to graph
 		for (let v of vertices) {
 			this.AdjList.set(v, []); 
 		}
 
-		// add initial edges to graph
+		// Add initial edges to graph
 		for (let edge of edges) {
 			this.AdjList.get(edge.src).push(edge.dest); 
 			this.AdjList.get(edge.dest).push(edge.src);
 		}
     } 
   
-    // add vertex to the graph 
+
+	/**
+	 * Add vertex to the graph
+	 * 
+	 * @param {string} v 
+	 */
 	addVertex(v) { 
 		this.AdjList.set(v, []); 
 		this.vertices.push(v);
 	}  
 
-	// add edge to the graph 
+  
+	/**
+	 * Add edge to the graph
+	 * 
+	 * @param {object} edge 
+	 */
 	addEdge(edge) { 
 		this.AdjList.get(edge.src).push(edge.dest); 
 		this.AdjList.get(edge.dest).push(edge.src); 
 		this.edges.push({'src': edge.src, 'dest': edge.dest});
 	} 
 
-	// display the vertex and adjacency list - to console
+
+	/**
+	 * Display the vertex and adjacency list in console
+	 * 
+	 */
 	display() { 
 
-		// get all the vertices 
+		// Get all vertices 
 		const mapKeys = this.AdjList.keys(); 
 	
-		// iterate over the vertices 
 		for (let i of mapKeys)  { 
 
-			// get the adjacency array for vertex
+			// Get the adjacency array for vertex
 			const mapValues = this.AdjList.get(i); 
 			let str = ""; 
 	
-			// iterate over the adjacency list 
+			// Iterate over the adjacency list 
 			for (let j of mapValues) {
 				str += j + " "; 
 			}
@@ -59,7 +73,11 @@ class Graph {
 	}
 
 	
-	// traverse graph - depth first search
+	/**
+	 * Traverse graph - depth first search
+	 * 
+	 * @param {string} startingNode
+	 */
 	dfs(startingNode) { 
 		let visited = []; 
 		for (let i = 0; i < this.vertices.length; i++) {
@@ -68,7 +86,13 @@ class Graph {
 		this.dfsUtil(startingNode, visited); 
 	} 
 	
-	// helper function - recursive go through all unvisited vertices
+
+	/**
+	 * Helper function - recursively go through all unvisited vertices
+	 * 
+	 * @param {string} v 
+	 * @param {array} visited 
+	 */
 	dfsUtil(v, visited) { 
 		visited[v] = true; 
 		console.log(v); 
