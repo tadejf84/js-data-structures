@@ -1,25 +1,38 @@
-/*
-* linked lists
-* a linked list is a linear data structure
-* the elements in a linked list are linked using pointers
-* each element or node contains data and reference to the next element in the list
-*/
+/**
+ * Class LinkedList
+ * 
+ * A linked list is a linear data structure - the elements in the list are linked with pointers
+ * Each element or node contains data and reference to the next element in the list
+ */
 class LinkedList {
 	
-	constructor () {
+	constructor() {
 		this.head = new Node("head");;
 	}
 	
-	// find node in the list
-	find (node) {
+
+	/**
+	 * Find node in the list
+	 * 
+	 * @param {string} node 
+	 * 
+	 * @returns {object} currNode
+	 */
+	find(node) {
 		let currNode = this.head;
 		while (currNode.element !== node) {
-		currNode = currNode.next;
+			currNode = currNode.next;
 		}
 		return currNode;
 	}
 	
-	// insert new node
+
+	/**
+	 * Insert new node
+	 * 
+	 * @param {string} newEl 
+	 * @param {string} linkedNode 
+	 */
 	insert(newEl, linkedNode) {
 		let newNode = new Node(newEl);
 		let current = this.find(linkedNode);
@@ -27,7 +40,12 @@ class LinkedList {
 		current.next = newNode;
 	}
 	
-	// remove node from list
+
+	/**
+	 * Remove node from list
+	 * 
+	 * @param {string} node 
+	 */
 	remove(node) {
 		let prevNode = this.findPrevious(node);
 		if (prevNode.next !== null) {
@@ -35,7 +53,10 @@ class LinkedList {
 		}
 	}
 	
-	// display data - to console
+
+	/**
+	 * Display data to console
+	 */
 	display() {
 		let currNode = this.head;
 		while (currNode.next !== null) {
@@ -44,7 +65,12 @@ class LinkedList {
 		}
 	}
 	
-	// find previos node
+
+	/**
+	 * Find previous node in the list
+	 * 
+	 * @param {string} node 
+	 */
 	findPrevious(node) {
 		let currNode = this.head;
 		while (currNode.next !== null && currNode.next.element !== node) {
@@ -56,10 +82,18 @@ class LinkedList {
 }
 
 
-/*
-* class to construct a node
-*/
+/**
+ * Class Node
+ * 
+ * Instantiate a new node
+ */
 class Node {
+
+	/**
+	 * Constructor
+	 * 
+	 * @param {string} el 
+	 */
 	constructor (el) {
 		this.element = el;
 		this.next = null;	
