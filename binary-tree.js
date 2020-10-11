@@ -135,18 +135,18 @@ class BinaryTree {
         this.inOrder(node.right);
     }
 	
-	/**
-	 * Get min value - minimum is either root or found in the left
-	 * 
+    /**
+     * Get min value - minimum is either root or found in the left
+     * 
      * @returns {number} min
-	 */
-	getMin() {
-		let current = this.root;
-		while (current.left !== null) {
-			current = current.left;
+     */
+    getMin() {
+        let current = this.root;
+        while (current.left !== null) {
+            current = current.left;
         }
-		return current.data;
-	}
+        return current.data;
+    }
 
     /**
      * Get max value - maximum is either root or found in the right
@@ -159,8 +159,7 @@ class BinaryTree {
             current = current.right;
         }
         return current.data;
-    }
-			
+    }		
 }
 
 
