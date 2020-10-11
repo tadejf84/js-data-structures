@@ -10,9 +10,9 @@ class LinkedList {
      * @constructor
      * 
      */
-	constructor() {
-		this.head = new Node("head");;
-	}
+    constructor() {
+        this.head = new Node("head");;
+    }
 	
     /**
      * Find node in the list
