@@ -6,160 +6,160 @@
  * Binary trees - max number of child nodes is 2
  */
 class BinaryTree {
-	
-	constructor () {
-		this.root = null; // Set root of the tree to null at first
-	}
-	
 
-	/**
-	 * Insert node to binary tree
-	 * 
-	 * @param {number} data 
-	 */
-	insert (data) {
-		let n = new NodeTree(data, null, null);
-		if (this.root === null) {
-			this.root = n;
-		} else {
-			let current = this.root;
-			let parent;
-			while (true) {
-				parent = current;
-				if (data < current.data) {
-					current = current.left;
-					if (current === null) {
-						parent.left = n;
-						break;
-					}
-				} else {
-					current = current.right;
-					if (current === null) {
-						parent.right = n;
-						break;
-					}
-				}
-			}
-		}
-	}
-	
+    /**
+     * @constructor
+     * 
+     */
+    constructor () {
+        this.root = null; // Set root of the tree to null at first
+    }
 
-	/**
-	 * Remove nodes from the tree
-	 * 
-	 * @param {number} data 
-	 */
-	remove(data) {
-		this.root = this.removeNode(this.root, data);
-	}
-	
+    /**
+     * Insert node to binary tree
+     * 
+     * @param {number} data 
+     */
+    insert (data) {
+        let n = new NodeTree(data, null, null);
+        if (this.root === null) {
+            this.root = n;
+        } else {
+            let current = this.root;
+            let parent;
+            while (true) {
+                parent = current;
+                if (data < current.data) {
+                    current = current.left;
+                    if (current === null) {
+                        parent.left = n;
+                        break;
+                    }
+                } else {
+                    current = current.right;
+                    if (current === null) {
+                        parent.right = n;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
-	/**
-	 * Remove node
-	 * 
-	 * @param {object} node 
-	 * @param {number} data 
-	 */
-	removeNode(node, data) {
-		if (node === null) return null;
-		
-		if (data === node.data) {
-			
-			// Node has no children
-			if (node.left === null && node.right === null) {
-				return null;
-			}
-			
-			// Node has no left child
-			if (node.left === null) {
-				return node.right;
-			}
-			
-			// Node has no right child
-			if (node.right === null) {
-				return node.left;
-			}
-			
-			// Node has two children
-			let tempNode = Math.min(node.right);
-			node.data = tempNode.data;
-			node.right = this.removeNode(node.right, tempNode.data);
-			return node;
-			
-		} else if (data < node.data) {
-			node.left = this.removeNode(node.left, data);
-			return node;
-		} else {
-			node.right = this.removeNode(node.right, data);
-			return node;
-		}
-		
-	}
-	
+    /**
+     * Remove nodes from the tree
+     * 
+     * @param {number} data 
+     */
+    remove(data) {
+        this.root = this.removeNode(this.root, data);
+    }
 
-	/**
-	 * Find node
-	 * 
-	 * @param {number} data 
-	 * 
-	 * @returns {object} Node
-	 */
-	find(data) {
-		let current = this.root;
-		
-		// loop through all nodes data until we find a match
-		while (current.data !== data) {
-			if (data < current.data) {
-				current = current.left;
-			} else {
-				current = current.right;
-			}
-			if (current === null) {
-				return null;
-			}
-		}
-		
-		return current;
-	}
-	
+    /**
+     * Remove node
+     * 
+     * @param {object} node 
+     * @param {number} data 
+     * 
+     * @returns {object} node
+     */
+    removeNode(node, data) {
+        if (node === null) return null;
+        
+        if (data === node.data) {
+            
+            // Node has no children
+            if (node.left === null && node.right === null) {
+                return null;
+            }
+            
+            // Node has no left child
+            if (node.left === null) {
+                return node.right;
+            }
+            
+            // Node has no right child
+            if (node.right === null) {
+                return node.left;
+            }
+            
+            // Node has two children
+            let tempNode = Math.min(node.right);
+            node.data = tempNode.data;
+            node.right = this.removeNode(node.right, tempNode.data);
+            return node;
+            
+        } else if (data < node.data) {
+            node.left = this.removeNode(node.left, data);
+            return node;
+        } else {
+            node.right = this.removeNode(node.right, data);
+            return node;
+        }
+    }
 
-	/**
-	 * Traverse tree and output nodes to console
-	 * 
-	 * @param {object} node 
-	 */
-	inOrder(node) {
-		if ( node === null) return;
-		this.inOrder(node.left);
-		console.log(node.data);
-		this.inOrder(node.right);
-	}
-	
+    /**
+     * Find node
+     * 
+     * @param {number} data 
+     * 
+     * @returns {object} Node
+     */
+    find(data) {
+        let current = this.root;
+        
+        // loop through all nodes data until we find a match
+        while (current.data !== data) {
+            if (data < current.data) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+            if (current === null) {
+                return null;
+            }
+        }
+        
+        return current;
+    }
 
+    /**
+     * Traverse tree and output nodes to console
+     * 
+     * @param {object} node 
+     */
+    inOrder(node) {
+        if ( node === null) return;
+        this.inOrder(node.left);
+        console.log(node.data);
+        this.inOrder(node.right);
+    }
+	
 	/**
 	 * Get min value - minimum is either root or found in the left
 	 * 
+     * @returns {number} min
 	 */
 	getMin() {
 		let current = this.root;
 		while (current.left !== null) {
 			current = current.left;
-		}
+        }
 		return current.data;
 	}
 
-
-	/**
-	 * Get max value - maximum is either root or found in the right
-	 * 
-	 */
-	getMax() {
-		let current = this.root;
-		while (current.right !== null) {
-			current = current.right;
-		}
-		return current.data;
-	}
+    /**
+     * Get max value - maximum is either root or found in the right
+     * 
+     * @returns {number} max
+     */
+    getMax() {
+        let current = this.root;
+        while (current.right !== null) {
+            current = current.right;
+        }
+        return current.data;
+    }
 			
 }
 
@@ -170,9 +170,17 @@ class BinaryTree {
  * 
  */
 class NodeTree {
-	constructor (data, left, right) {
-		this.data = data;
-		this.left = left;
-		this.right = right;
-	}
+
+    /**
+     * @constructor
+     * 
+     * @param {number} data 
+     * @param {object} left 
+     * @param {object} right 
+     */
+    constructor (data, left, right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
 }
