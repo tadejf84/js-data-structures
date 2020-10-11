@@ -9,10 +9,10 @@ class Stack {
      * @constructor
      * 
      */
-	constructor() {
-		this.data = []; 	// Data storage - elements stored in an array
-		this.top = 0; 		// Top of the stack
-	}
+    constructor() {
+        this.data = []; 	// Data storage - elements stored in an array
+        this.top = 0; 		// Top of the stack
+    }
 
     /**
      * Store element on the top of the stack
@@ -44,13 +44,13 @@ class Stack {
         this.top = 0;
     }
 
-	/**
-	 * Get the size of the stack
-	 * 
-	 * @returns {number} size
-	 */
-	length() {
-		return this.top;
-	}
-	
+    /**
+     * Get the size of the stack
+     * 
+     * @returns {number} size
+     */
+    length() {
+        return this.top;
+    }
+
 }
