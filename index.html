@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Data Structures in JS</title>
     <script src="list.js"></script>
     <script src="stack.js"></script>
@@ -11,82 +11,80 @@
     <script src="hash-table.js"></script>
     <script src="binary-tree.js"></script>
     <script src="graph.js"></script>
-
     <script>
-		document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", () => {
 
-			// Lists			
-			let list = new List();
-			list.append('el1');
-			list.append('el2');
-			console.log(list);
-			
-			// Stacks
-			let stack = new Stack();
-			stack.push('el1');
-			stack.push('el2');
-			stack.push('el3');
-			stack.pop();
-			console.log(stack);
-			
-			// Queues
-			let queue = new Queue();
-			queue.enqueue('el1');
-			queue.enqueue('el2');
-			queue.enqueue('el3');
-			console.log(queue);
+            // Lists			
+            let list = new List();
+            list.append('el1');
+            list.append('el2');
+            console.log(list);
+            
+            // Stacks
+            let stack = new Stack();
+            stack.push('el1');
+            stack.push('el2');
+            stack.push('el3');
+            stack.pop();
+            console.log(stack);
+            
+            // Queues
+            let queue = new Queue();
+            queue.enqueue('el1');
+            queue.enqueue('el2');
+            queue.enqueue('el3');
+            console.log(queue);
 
-			// Linked lists
-			let ll = new LinkedList();
-			ll.insert('el1', 'head');
-			ll.insert('el2', 'el1');
-			ll.insert('el3', 'el2');
-			console.log(ll);
-			
-			// Dictionaries
-			let dictionary = new Dictionary();
-			dictionary.add('el1', 'value1');
-			dictionary.add('el2', 'value2');
-			dictionary.add('el3', 'value3');
-			console.log(dictionary);
-			
-			// Hash tables
-			let hTable = new HashTable();
-			hTable.put('el1');
-			hTable.put('el2');
-			hTable.put('el3');
-			console.log(hTable);
-			
-			// Binary trees
-			let bTree = new BinaryTree();
-			bTree.insert(12);
-			bTree.insert(11);
-			bTree.insert(22);
-			bTree.insert(9);
-			bTree.insert(3);
-			bTree.insert(37);
-			console.log(bTree);
-			
-			// Graphs
-			const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
-			const edges = [
-				{ 'src': 'A', 'dest': 'B' },
-				{ 'src': 'A', 'dest': 'D' },
-				{ 'src': 'A', 'dest': 'E' },
-				{ 'src': 'B', 'dest': 'C' },
-				{ 'src': 'D', 'dest': 'E' },
-				{ 'src': 'E', 'dest': 'F' },
-				{ 'src': 'E', 'dest': 'C' },
-				{ 'src': 'C', 'dest': 'F' }
-			];
-			let graph = new Graph(vertices, edges);
-			graph.addVertex('G');
-			graph.addEdge({'src': 'E', 'dest': 'G'});
-			console.log(graph); 
+            // Linked lists
+            let ll = new LinkedList();
+            ll.insert('el1', 'head');
+            ll.insert('el2', 'el1');
+            ll.insert('el3', 'el2');
+            console.log(ll);
+            
+            // Dictionaries
+            let dictionary = new Dictionary();
+            dictionary.add('el1', 'value1');
+            dictionary.add('el2', 'value2');
+            dictionary.add('el3', 'value3');
+            console.log(dictionary);
+            
+            // Hash tables
+            let hTable = new HashTable();
+            hTable.put('el1');
+            hTable.put('el2');
+            hTable.put('el3');
+            console.log(hTable);
+            
+            // Binary trees
+            let bTree = new BinaryTree();
+            bTree.insert(12);
+            bTree.insert(11);
+            bTree.insert(22);
+            bTree.insert(9);
+            bTree.insert(3);
+            bTree.insert(37);
+            console.log(bTree);
+            
+            // Graphs
+            const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
+            const edges = [
+                { 'src': 'A', 'dest': 'B' },
+                { 'src': 'A', 'dest': 'D' },
+                { 'src': 'A', 'dest': 'E' },
+                { 'src': 'B', 'dest': 'C' },
+                { 'src': 'D', 'dest': 'E' },
+                { 'src': 'E', 'dest': 'F' },
+                { 'src': 'E', 'dest': 'C' },
+                { 'src': 'C', 'dest': 'F' }
+            ];
+            let graph = new Graph(vertices, edges);
+            graph.addVertex('G');
+            graph.addEdge({'src': 'E', 'dest': 'G'});
+            console.log(graph); 
 
-		});
+        });
     </script>
-    
 </head>
 <body>
 
