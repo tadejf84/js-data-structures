@@ -64,12 +64,9 @@ class Queue {
      * @returns {boolean}
      */
     isEmpty() {
-        if (this.data.length === 0) 
-        {
+        if (this.data.length === 0) {
             return true;
-        } 
-        else 
-        {
+        } else {
             return false;
         }
     }
