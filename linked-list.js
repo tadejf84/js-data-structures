@@ -66,20 +66,20 @@ class LinkedList {
         }
     }
 	
-	/**
-	 * Find previous node in the list
-	 * 
-	 * @param {string} node 
+    /**
+     * Find previous node in the list
+     * 
+     * @param {string} node 
      * 
      * @returns {string} node
-	 */
-	findPrevious(node) {
-		let currNode = this.head;
-		while (currNode.next !== null && currNode.next.element !== node) {
-			currNode = currNode.next;
+     */
+    findPrevious(node) {
+        let currNode = this.head;
+        while (currNode.next !== null && currNode.next.element !== node) {
+            currNode = currNode.next;
         }
-		return currNode;
-	}
+        return currNode;
+    }
 
 }
 
